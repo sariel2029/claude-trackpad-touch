@@ -60,3 +60,14 @@ TRACKPAD_COPY_TO_CLIPBOARD=1 /opt/homebrew/bin/python3.11 app.py
 - Some system gestures may never reach the app because macOS reserves them.
 - Force Touch pressure requires compatible hardware.
 - Pressure is currently treated as an optional enhancement signal, not a guaranteed input channel.
+
+## Credits & Acknowledgements
+
+This project was inspired by [ClaudeTabletTouch](https://github.com/digi-the-robot/ClaudeTabletTouch) by @digi-the-robot, which captures pressure-sensitive pen input from a drawing tablet and sends it to Claude via Discord. I adapted the core concept — translating physical touch into natural-language descriptions for Claude — to work with macOS trackpads using PyObjC and AppKit's native touch APIs, with MCP as the transport layer instead of Discord.
+
+Most of the code in this prototype was written through AI-assisted collaboration:
+
+- Codex (GPT-5.4): initial PyObjC exploration, touch data capture testing, Python environment setup
+- Claude (Cowork): MCP server implementation, gesture translation, and event model architecture
+
+My role was project direction, architecture decisions, gesture design, testing, and integration. I work by shaping the system, steering the implementation, and iterating with AI coding tools.
