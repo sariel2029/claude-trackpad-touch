@@ -1,14 +1,31 @@
-# Mac Trackpad Probe
+# Claude Trackpad Touch
 
-Small PyObjC prototype for testing what macOS trackpad data is reachable from a native AppKit view.
+A personal macOS trackpad experiment for turning touch and gesture input into structured events and touch-like descriptions for Claude-oriented workflows.
+
+Built with PyObjC and AppKit. This project is mainly for local use and exploration rather than broad compatibility.
 
 ## What it tries to capture
 
-- Touch lifecycle events: `touchesBegan/Moved/Ended/Cancelled`
-- Gesture events: `magnifyWithEvent`, `rotateWithEvent`, `swipeWithEvent`
-- Pressure changes: `pressureChangeWithEvent`
-- Scrolling deltas: `scrollWheel`
-- Mouse press/drag/release as a fallback signal for click + drag interaction
+- Single-touch sessions such as tap, hold, swipe, and drag
+- System gesture events such as scroll, magnify, rotate, and swipe
+- Force Touch pressure changes when macOS exposes them
+- Structured event objects plus Chinese touch-style summaries
+
+## Gesture Summary
+
+Single-touch gestures:
+
+- `tap`
+- `hold`
+- `swipe`
+- `drag`
+
+System and multi-touch gestures:
+
+- `scroll`
+- `magnify`
+- `rotate`
+- `swipe_gesture`
 
 ## Install
 
@@ -42,3 +59,4 @@ TRACKPAD_COPY_TO_CLIPBOARD=1 /opt/homebrew/bin/python3.11 app.py
 - This prototype is intentionally window-scoped. It validates AppKit input delivery first.
 - Some system gestures may never reach the app because macOS reserves them.
 - Force Touch pressure requires compatible hardware.
+- Pressure is currently treated as an optional enhancement signal, not a guaranteed input channel.
